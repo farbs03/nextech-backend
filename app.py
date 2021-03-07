@@ -21,7 +21,6 @@ class GenerateInsights(Resource):
 	def post(self):
 		try: 
 			formData = request.json
-			formData = pd.json_normalize(formData)
 			model.addData(formData)
 			response = jsonify({
 				"statusCode": 200,
