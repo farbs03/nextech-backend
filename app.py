@@ -21,11 +21,10 @@ class GenerateInsights(Resource):
 	def post(self):
 		try: 
 			formData = request.json
-			model.addData(formData)
 			response = jsonify({
 				"statusCode": 200,
 				"status": "Prediction made",
-				"result": model.run()
+				"result": model.run(formData)
 			})
 			response.headers.add('Access-Control-Allow-Origin', '*')
 			return response
