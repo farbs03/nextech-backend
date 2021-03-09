@@ -35,7 +35,7 @@ def run(request):
 
     X = data[["Work", "School", "Life", "Exercise"]].values
     y = data["Happiness"].values
-    
+
     # split into train and test sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
     # feature selection
@@ -50,7 +50,7 @@ def run(request):
         total += fs.scores_[i]
     #Show the scores
     most_important = round(most_important, 2)
-    return(f"{data.columns[idx + 1]} tasks contributed the most to your happiness, with a score of {most_important}!")
+    return(f"{data.columns[idx + 1]} tasks contributed the most to your happiness!")
 
 
 
