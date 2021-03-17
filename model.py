@@ -37,11 +37,8 @@ def run(request):
             most_harmful = (features[i], j)
 
     return(
-        f"""
-        {most_important[0]} tasks contributed the most to your happiness
-        {most_harmful[0]} tasks took the largest toll on your happiness
-        """
-        )
+        f"{most_important[0]} tasks contributed the most to your happiness {most_harmful[0].lower()} tasks took the largest toll on your happiness"
+    )
 
 
 
