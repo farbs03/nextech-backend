@@ -12,7 +12,7 @@ numpy==1.19.5
 pandas==1.1.5
 scikit-learn==0.22.1
 scipy==1.5.4
-six==1.12.0
+six==1.13.0
 Werkzeug==0.16.1
 gunicorn==19.9.0
 google-cloud-vision==2.3.0
