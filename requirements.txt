@@ -15,7 +15,3 @@ scipy==1.5.4
 six==1.13.0
 Werkzeug==0.16.1
 gunicorn==19.9.0
-google-cloud-vision==2.3.0
-opencv-contrib-python==4.5.1.48
-opencv-python==4.5.1.48
-imageio==2.9.0

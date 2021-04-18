@@ -5,7 +5,6 @@ import numpy as np
 import pandas as pd
 import sys
 import model
-import textReader
 
 
 app = Flask(__name__)
@@ -37,34 +36,7 @@ class GenerateInsights(Resource):
 				"error": str(error)
 			})
 
-class GenerateText(Resource):
-
-	def options(self):
-		response = make_response()
-		response.headers.add("Access-Control-Allow-Origin", "*")
-		response.headers.add('Access-Control-Allow-Headers', "*")
-		response.headers.add('Access-Control-Allow-Methods', "*")
-		return response
-	
-	def post(self):
-		try: 
-			formData = request.json
-			response = jsonify({
-				"statusCode": 200,
-				"status": "Prediction made",
-				"result": textReader.getOutput(formData.image_string)
-			})
-			response.headers.add('Access-Control-Allow-Origin', '*')
-			return response
-		except Exception as error:
-			return jsonify({
-				"statusCode": 500,
-				"status": "Could not make prediction",
-				"error": str(error)
-			})
-
 api.add_resource(GenerateInsights, '/')
-api.add_resource(GenerateText, '/ocr')
 
 
 if __name__ == "__main__":
