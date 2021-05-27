@@ -3,24 +3,9 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import math
 import json
-
-data = pd.read_csv("studentdata.csv", delimiter=",")
-
-def addData(request):
-    global data
-    formData = pd.json_normalize(request)
-    idx = 0
-    for entry in formData.values:
-        if data.loc[data.Date == entry[0]].empty:
-            newData = pd.DataFrame([entry], columns=data.columns)
-            data = data.append(newData, ignore_index=True)
-        else:
-            data.loc[data.Date == entry[0]] = entry
-    data.to_csv("studentdata.csv", index=False)
     
 def run(request):
-    addData(request)
-    global data
+    data = pd.json_normalize(request)
     features = ["Work", "School", "Life", "Exercise"]
     X = data[features].values
     y = data["Happiness"].values
